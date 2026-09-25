@@ -1,0 +1,53 @@
+@model IEnumerable<luyentap.Models.NhbMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NhbMemberUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhbMemberPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhbMemberEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhbMemberFullName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.NhbMemberUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NhbMemberPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NhbMemberEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.NhbMemberFullName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NhbMemberId">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.NhbMemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NhbMemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
